@@ -53,7 +53,7 @@ const findDay = entry => {
 
 const findYear = entry => {
   const date = entry.date
-  const year = date.getYear()
+  const year = date.getFullYear()
   entry.year = year
 }
 
