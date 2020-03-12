@@ -32,8 +32,7 @@ async function seed() {
 
   const entry3 = await Entry.create({
     title: 'Having a pretty solid day',
-    body:
-      "It's been pretty hard figuring out how to get a good schedule up and running for the job search. The first week, I was focused on projects and algos, but I don't feel like I made a lot of progress on the job search part. The second week, when we started doing morning algos, that just totally threw off my day. I realized I need to start being productive way before then, and I needed to get out of the house. So I started going to the cafe every day, but I wasn't feeling super productive there. I feel like I'm just started to make sense of what my day-to-day is going to look like and what it's going to take to implement it.",
+    body: 'An all around, good day, really.',
     date: new Date('March 11, 2020')
   })
 
