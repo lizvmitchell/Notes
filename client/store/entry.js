@@ -15,6 +15,19 @@ export const getEntry = (day, month, year) => async dispatch => {
   }
 }
 
+// const CREATED_ENTRY = 'CREATED_ENTRY'
+
+// const createdEntry = entry => ({type: CREATED_ENTRY, entry})
+
+export const createEntry = entry => async dispatch => {
+  try {
+    const {data} = await axios.post('/api/entries', entry)
+    dispatch(gotEntry(data))
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case GOT_ENTRY:
