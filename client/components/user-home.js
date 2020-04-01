@@ -36,7 +36,7 @@ class UserHome extends React.Component {
     const date = new Date()
     const idx = date.getMonth()
     const month = months[idx]
-    this.props.getEntries({month: month})
+    this.props.getEntries(month)
   }
 
   render() {
@@ -44,6 +44,12 @@ class UserHome extends React.Component {
     return (
       <div>
         <h3>Welcome, {this.props.email}</h3>
+        {this.props.entries.map(entry => (
+          <div key={entry.id}>
+            <h4>{entry.title}</h4>
+            <p>{entry.body}</p>
+          </div>
+        ))}
       </div>
     )
   }
