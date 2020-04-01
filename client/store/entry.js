@@ -1,8 +1,11 @@
 import axios from 'axios'
 
-const GOT_ENTRY = 'GOT_ENTRY'
+const initialState = {
+  entries: [],
+  entry: {}
+}
 
-const initialState = {}
+const GOT_ENTRY = 'GOT_ENTRY'
 
 const gotEntry = entry => ({type: GOT_ENTRY, entry})
 
@@ -10,6 +13,19 @@ export const getEntry = (day, month, year) => async dispatch => {
   try {
     const {data} = await axios.get(`/api/entries/${month}/${day}/${year}`)
     dispatch(gotEntry(data))
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const GOT_ENTRIES = 'GOT_ENTRIES'
+
+const gotEntries = entries => ({type: GOT_ENTRIES, entries})
+
+export const getEntries = month => async dispatch => {
+  try {
+    const {data} = await axios.get('/api/entries', month)
+    dispatch(gotEntries(data))
   } catch (error) {
     console.log(error)
   }
@@ -31,7 +47,9 @@ export const createEntry = entry => async dispatch => {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case GOT_ENTRY:
-      return action.entry
+      return {...state, entry: action.entry}
+    case GOT_ENTRIES:
+      return {...state, entries: action.entries}
     default:
       return state
   }
