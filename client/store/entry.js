@@ -9,9 +9,9 @@ const GOT_ENTRY = 'GOT_ENTRY'
 
 const gotEntry = entry => ({type: GOT_ENTRY, entry})
 
-export const getEntry = (day, month, year) => async dispatch => {
+export const getEntry = id => async dispatch => {
   try {
-    const {data} = await axios.get(`/api/entries/${month}/${day}/${year}`)
+    const {data} = await axios.get(`/api/entries/${id}`)
     dispatch(gotEntry(data))
   } catch (error) {
     console.log(error)

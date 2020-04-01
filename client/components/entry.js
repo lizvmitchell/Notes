@@ -6,25 +6,30 @@ class Entry extends React.Component {
   // constructor(props) {
   //   super(props)
   // }
+
+  componentDidMount() {
+    const id = this.props.match.params.id
+    this.props.getEntry(id)
+  }
+
   render() {
-    console.log(this.props)
+    const {entry} = this.props
     return (
       <div>
-        <h2>Date Goes Here</h2>
-        <h3>Title Goes Here</h3>
-        <article>
-          An awful lot of text goes here. Just so so much. More than you want,
-          really.
-        </article>
+        <h2>
+          {entry.month} {entry.day}, {entry.year}
+        </h2>
+        <h3>{entry.title}</h3>
+        <article>{entry.body}</article>
       </div>
     )
   }
 }
 
-const mapState = state => ({entry: state.entry})
+const mapState = state => ({entry: state.entry.entry})
 
 const mapDispatch = dispatch => ({
-  getEntry: (month, day, year) => dispatch(getEntry(month, day, year))
+  getEntry: id => dispatch(getEntry(id))
 })
 
 export default connect(mapState, mapDispatch)(Entry)

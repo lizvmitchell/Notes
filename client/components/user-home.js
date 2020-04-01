@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {getEntries} from '../store/entry'
 
@@ -46,7 +47,9 @@ class UserHome extends React.Component {
         <h3>Welcome, {this.props.email}</h3>
         {this.props.entries.map(entry => (
           <div key={entry.id}>
-            <h4>{entry.title}</h4>
+            <Link to={`/entry/${entry.id}`}>
+              <h4>{entry.title}</h4>
+            </Link>
             <p>{entry.body}</p>
           </div>
         ))}
