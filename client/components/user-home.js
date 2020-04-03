@@ -33,10 +33,18 @@ const months = [
 ]
 
 class UserHome extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      month: ''
+    }
+  }
   componentDidMount() {
     const date = new Date()
     const idx = date.getMonth()
     const month = months[idx]
+    this.setState({month: month})
     this.props.getEntries(month)
   }
 
@@ -45,6 +53,12 @@ class UserHome extends React.Component {
     return (
       <div>
         <h3>Welcome, {this.props.email}</h3>
+        <br />
+        {/* <div>
+          <button type='button'>{`<`}</button>
+          <h4>{this.state.month}</h4>
+          <button type="button">{`>`}</button>
+        </div> */}
         {this.props.entries.map(entry => (
           <div key={entry.id}>
             <Link to={`/entry/${entry.id}`}>
