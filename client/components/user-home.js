@@ -54,11 +54,11 @@ class UserHome extends React.Component {
       <div>
         <h3>Welcome, {this.props.email}</h3>
         <br />
-        {/* <div>
-          <button type='button'>{`<`}</button>
+        <div>
+          <button type="button">{`<`}</button>
           <h4>{this.state.month}</h4>
           <button type="button">{`>`}</button>
-        </div> */}
+        </div>
         {this.props.entries.map(entry => (
           <div key={entry.id}>
             <Link to={`/entry/${entry.id}`}>
