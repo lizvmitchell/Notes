@@ -5,7 +5,11 @@ module.exports = router
 router.get('/', async (req, res, next) => {
   try {
     const entries = await Entry.findAll({
-      where: {userId: req.user.id, month: req.query.month},
+      where: {
+        userId: req.user.id,
+        month: req.query.month,
+        year: req.query.year
+      },
       order: [['createdAt', 'ASC']]
     })
     res.json(entries)

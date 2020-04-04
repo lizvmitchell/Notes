@@ -22,9 +22,10 @@ const GOT_ENTRIES = 'GOT_ENTRIES'
 
 const gotEntries = entries => ({type: GOT_ENTRIES, entries})
 
-export const getEntries = month => async dispatch => {
+export const getEntries = (month, year) => async dispatch => {
   try {
-    const {data} = await axios.get(`/api/entries/?month=${month}`)
+    console.log('in thunk', month, year)
+    const {data} = await axios.get(`/api/entries/?month=${month}&year=${year}`)
     dispatch(gotEntries(data))
   } catch (error) {
     console.log(error)

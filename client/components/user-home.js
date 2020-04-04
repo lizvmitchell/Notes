@@ -37,19 +37,22 @@ class UserHome extends React.Component {
     super(props)
 
     this.state = {
-      month: ''
+      month: '',
+      year: ''
     }
   }
   componentDidMount() {
     const date = new Date()
     const idx = date.getMonth()
+    const year = date.getFullYear()
     const month = months[idx]
-    this.setState({month: month})
-    this.props.getEntries(month)
+    this.setState({month: month, year: year})
+    this.props.getEntries(month, year)
   }
 
   render() {
     console.log(this.props)
+    console.log(this.state)
     return (
       <div>
         <h3>Welcome, {this.props.email}</h3>
@@ -84,7 +87,7 @@ const mapState = state => {
 
 const mapDispatch = dispatch => {
   return {
-    getEntries: entries => dispatch(getEntries(entries))
+    getEntries: (month, year) => dispatch(getEntries(month, year))
   }
 }
 
