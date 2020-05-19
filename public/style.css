@@ -19,3 +19,38 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+#month-nav {
+  display: flex;
+}
+
+#month-arrow {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+#entry-form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#entry-title-input-container {
+  display: flex;
+}
+
+#entry-content-input-container {
+  display: flex;
+}
+
+.entry-label {
+  width: 5em;
+}
+
+#title-input-field {
+  width: 50%;
+}
+
+#entry-input-field {
+  width: 50%;
+  height: 20em;
+}

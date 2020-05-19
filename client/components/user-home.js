@@ -92,7 +92,7 @@ class UserHome extends React.Component {
       <div>
         <h3>Welcome, {this.props.email}</h3>
         <br />
-        <div>
+        <div id="month-nav">
           <ArrowButton
             text="<"
             handleClick={this.handleArrowClick}

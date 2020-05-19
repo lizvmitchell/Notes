@@ -31,20 +31,30 @@ class NewEntry extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="entry-form-container">
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="title">Title:</label>
-          <input
-            name="title"
-            value={this.state.title}
-            onChange={this.handleChange}
-          />
-          <label htmlFor="body">Content:</label>
-          <textarea
-            name="body"
-            value={this.state.content}
-            onChange={this.handleChange}
-          />
+          <div id="entry-title-input-container">
+            <label className="entry-label" htmlFor="title">
+              Title:
+            </label>
+            <input
+              id="title-input-field"
+              name="title"
+              value={this.state.title}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div id="entry-content-input-container">
+            <label className="entry-label" htmlFor="body">
+              Content:
+            </label>
+            <textarea
+              id="entry-input-field"
+              name="body"
+              value={this.state.content}
+              onChange={this.handleChange}
+            />
+          </div>
           <button type="submit">Post</button>
         </form>
       </div>
